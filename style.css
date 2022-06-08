@@ -1,0 +1,20 @@
+:root{
+    --Mobile: 375px;
+    --Desktop: 1440px;
+    --Moderate-blue: hsl(238, 40%, 52%);
+    --Soft-Red: hsl(358, 79%, 66%);
+    --Light-grayish-blue: hsl(239, 57%, 85%);
+    --Pale-red: hsl(357, 100%, 86%);
+    --Dark-blue: hsl(212, 24%, 26%);
+    --Grayish-Blue: hsl(211, 10%, 45%);
+    --Light-gray: hsl(223, 19%, 93%);
+    --Very-light-gray: hsl(228, 33%, 97%);
+    --White: hsl(0, 0%, 100%);
+    --Font-size-paragraph: 16px;
+}
+
+body{
+    margin: 0;
+    font-size: var(--Font-size-paragraph);
+    font-family: 'Rubik', sans-serif;
+}
