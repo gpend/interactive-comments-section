@@ -18,3 +18,11 @@ body{
     font-size: var(--Font-size-paragraph);
     font-family: 'Rubik', sans-serif;
 }
+
+main{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    margin: 2em auto;
+    align-items: center;
+}

@@ -1,20 +1,14 @@
-console.log('it worked')
-
 fetch("./data.json")
-    .then(resp => resp.json())
-    .then(data => {
-        console.log(data)
-        
+  .then((response) => response.json())
+  .then((data) => {
+    document.querySelector(".user-section").innerHTML = getUserBlockHTML(
+      data.currentUser
+    );
+  });
 
-
-
-
-
-
-
-
-
-
-
-
-    })
+function getUserBlockHTML(userInfo) {
+  const html = `<img src='${userInfo.image.webp}' alt='user pic'/>
+                    <textarea name="add-comment">add a comment</textarea>
+                    <button class='comment-submit'>send</button>`;
+  return html;
+}
