@@ -1,6 +1,7 @@
 fetch("./data.json")
   .then((response) => response.json())
   .then((data) => {
+    // @ts-ignore
     document.querySelector(".user-section").innerHTML = getUserBlockHTML(
       data.currentUser
     );
