@@ -31,7 +31,7 @@ function getCommentHTML(commentData){
   return html
 }
 
-function displayComments(data){
+function displayComments(data){ //TODO fix nesting
   let comments =""
   for (let comment of data){
     let commentHTML = getCommentHTML(comment)
@@ -51,5 +51,5 @@ class comment{
 }
 
 class reply extends comment{
-  
+
 }

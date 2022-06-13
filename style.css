@@ -17,6 +17,7 @@ body{
     margin: 0;
     font-size: var(--Font-size-paragraph);
     font-family: 'Rubik', sans-serif;
+    background-color: var(--Very-light-gray);
 }
 
 main{
@@ -25,6 +26,11 @@ main{
     flex-direction: column;
     margin: 2em auto;
     align-items: center;
+}
+
+.comment-card{
+    background-color: var(--White);
+    margin: .5em 2em;
 }
 
 .attribution {
