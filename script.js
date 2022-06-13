@@ -18,15 +18,13 @@ function getUserBlockHTML(userInfo) {
 
 function getCommentHTML(commentData){
   console.log(commentData)
-  const html = `<div class="comment-card">
-                  <div class="comment-card--header">
+  const html = `<div class="comment-card--header">
                       <img src="${commentData.user.image.webp}" alt="user avatar">
                       <div class="comment-card--header__userID"> ${commentData.user.username} </div>
-                      <div class="comment-card--header__createdAt" ${commentData.createdAt}</div>
+                      <div class="comment-card--header__createdAt"> ${commentData.createdAt}</div>
                   </div>
                   <div class="comment-card--body">${commentData.content}</div>
-                  <div class="comment-card--footer"></div>
-                </div>`
+                  <div class="comment-card--footer"></div>`
   
   return html
 }
@@ -34,10 +32,10 @@ function getCommentHTML(commentData){
 function displayComments(data){ //TODO fix nesting
   let comments =""
   for (let comment of data){
-    let commentHTML = getCommentHTML(comment)
+    let commentHTML = `<div class="comment-card">${getCommentHTML(comment)}</div>`
     // @ts-ignore
     for (let reply of comment.replies){
-      commentHTML += `<div class="comment--reply">${getCommentHTML(reply)}</div>`
+      commentHTML += `<div class="comment-card comment-reply">${getCommentHTML(reply)}</div>`
     }
     console.log(commentHTML)
     comments += commentHTML
