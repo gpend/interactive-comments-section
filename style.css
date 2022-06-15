@@ -14,6 +14,7 @@
 }
 
 body{
+    
     margin: 0;
     font-size: var(--Font-size-paragraph);
     font-family: 'Rubik', sans-serif;
@@ -21,16 +22,35 @@ body{
 }
 
 main{
-    width: 80vw;
+    max-width: 375px;
     display: flex;
     flex-direction: column;
     margin: 2em auto;
     align-items: center;
 }
 
+.comment-section{
+    overflow: auto;
+}
+
 .comment-card{
     background-color: var(--White);
-    margin: .5em 2em;
+    margin: 1.5em 2em;
+    overflow: auto;
+}
+
+.comment-card--header{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 1rem;
+}
+
+.comment-card--header img{
+    width:20px;
+}
+
+.comment-card--body{
+    margin: 1em;
 }
 
 .attribution {
