@@ -34,15 +34,14 @@ main {
 
 .comment-card {
   background-color: var(--White);
-  margin: 1.5em 2em;
+  margin: 1.5em;
   overflow: auto;
   border-radius: 10px;
 }
 
 .comment-card--header {
   display: flex;
-  /* justify-content: space-between; */
-  margin: 1rem 1rem;
+  margin: 1rem 1rem 0.5rem 1rem;
 }
 
 .comment-card--header img {
@@ -59,13 +58,24 @@ main {
 }
 
 .comment-card--body {
-  margin: 1em;
+  margin: 0.5rem 1rem;
 }
 
-/* line in front of all replies */
+.comment-card--footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.comment-card--footer__score-controls {
+  display: flex;
+  flex-direction: row;
+}
 
 .comment-card__replies {
-  margin-left: 3rem;
+  margin-left: 1.5rem;
   border-left: 1px solid var(--Light-gray);
 }
 
