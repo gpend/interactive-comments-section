@@ -62,7 +62,6 @@ function displayComments(data, currentUser) {
     commentHTML += '<div class="comment-card__replies">';
 
     for (let reply of comment.replies) {
-      // console.log(reply)
       let commentReplyHTML = `<div class="comment-card comment-reply">${getCommentHTML(
         reply,
         currentUser
@@ -87,13 +86,3 @@ function getFooterButton(comment, currentUser) {
 // class comment {}
 
 // class reply extends comment {}
-
-// <div class='comment-card--replies'>
-//   {' '}
-//   $
-//   {commentData.replies == undefined || commentData.replies.length === 0
-//     ? ''
-//     : getReplyHTML(commentData)}
-// </div>;
-
-// ${if (commentData.replyingTo){console.log(true)}}
