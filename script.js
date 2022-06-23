@@ -79,8 +79,8 @@ function displayComments(data, currentUser) {
 
 function getFooterButton(comment, currentUser) {
   return comment.user.username != currentUser.username
-    ? '<button class="reply-button">reply</button>'
-    : '<button class="edit-button">edit</button> <button class="delete-button">delete</button>';
+    ? '<button class="reply-button"><i class="fa-solid fa-reply"></i> Reply</button>'
+    : '<button class="delete-button"><i class="fa-solid fa-trash-can"></i> Delete</button> <button class="edit-button"><i class="fa-solid fa-pen"></i> Edit</button>';
 }
 
 // class comment {}
