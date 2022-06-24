@@ -18,6 +18,7 @@ body {
   font-size: var(--Font-size-paragraph);
   font-family: 'Rubik', sans-serif;
   background-color: var(--Very-light-gray);
+  color: var(--Grayish-Blue);
 }
 
 main {
@@ -81,18 +82,29 @@ main {
   width: 2rem;
   border: none;
   background-color: var(--Light-gray);
+  font-weight: 700;
+}
+
+.comment-card--footer__score-plus,
+.comment-card--footer__score-minus {
+  font-size: larger;
+  color: var(--Light-grayish-blue);
+}
+
+.comment-card--footer__score {
+  color: var(--Moderate-blue);
 }
 
 .comment-card--footer__score-plus {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  border-right: 1px solid var(--Light-grayish-blue);
 }
 
 .comment-card--footer__score-minus {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  border-left: 1px solid var(--Light-grayish-blue);
+  padding-bottom: 0.5rem;
+  font-size: x-large;
 }
 
 .comment-card--footer__score {
