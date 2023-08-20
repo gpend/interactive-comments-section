@@ -113,6 +113,22 @@ function getUserBlockHTML(userInfo) {
   return html;
 }
 
-// class comment {}
+class comment {
+  constructor(username, date, comment, score){
+    this.username = username;
+    this.date = date;
+    this.comment = comment;
+    this.score = score
+  }
+
+  changeScore(){
+
+  }
+
+}
 
 // class reply extends comment {}
+
+// enable replies
+// enable score change
+//re-order based on score
