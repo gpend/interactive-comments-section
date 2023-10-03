@@ -65,7 +65,7 @@ main {
 .comment-card--footer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   margin: 0 1rem;
   margin-bottom: 1rem;
   height: 2rem;

@@ -4,7 +4,7 @@
 3. Displaying the comments in the comment section.
 4. Displaying the current user’s information in the user section.
 */
-fetch('./data.json')
+fetch("data.json")
   .then((response) => response.json())
   .then((data) => {
     document.querySelector('.comment-section').innerHTML = displayComments(
@@ -15,6 +15,37 @@ fetch('./data.json')
     document.querySelector('.user-section').innerHTML = getUserBlockHTML(
       data.currentUser
     );
+
+    var plusButtons = document.getElementsByClassName("comment-card--footer__score-plus")
+
+    for (var button of plusButtons){
+      button.addEventListener("click", changeScore)
+      button.direction = "plus"
+    } 
+
+    var minusButtons = document.getElementsByClassName("comment-card--footer__score-minus")
+
+    for (var button of minusButtons){
+      button.addEventListener("click", changeScore)
+      button.direction = "minus"
+    }
+
+    function changeScore(thing){
+      var score = thing.srcElement.parentNode.children[1]
+      var direction = thing.srcElement.direction
+      switch (direction) {
+        case 'plus':
+          score.innerText = parseInt(score.innerText) + 1
+          break;
+        case 'minus':
+          if (parseInt(score.innerText) >= 1){
+            score.innerText = parseInt(score.innerText) - 1
+          }
+          
+        default:
+          break;
+      }
+    }
   });
 
 /**
@@ -38,7 +69,7 @@ function getCommentHTML(commentData, currentUser) {
                       }</div>
                 </div>
                 <div class="comment-card--body">${commentData.content}</div>
-                <div class="comment-card--footer">
+                <div class="comment-card--footer" id=${commentData.id}>
                     <div class="comment-card--footer__score-controls">
                         <button class="comment-card--footer__score-plus">+</button>
                         <div class="comment-card--footer__score">${
@@ -105,13 +136,13 @@ function displayComments(data, currentUser) {
  * @param userInfo - The info on the currently logged in user
  * @returns the html variable.
  */
-function getUserBlockHTML(userInfo) {
-  const html = `<img src='${userInfo.image.webp}' alt='user pic'/>
-                    <textarea name="add-comment">add a comment</textarea>
-                    <button class='comment-submit'>send</button>`;
+  function getUserBlockHTML(userInfo) {
+    const html = `<img src='${userInfo.image.webp}' alt='user pic'/>
+                      <textarea name="add-comment">add a comment</textarea>
+                      <button class='comment-submit'>send</button>`;
 
-  return html;
-}
+    return html;
+  }
 
 class comment {
   constructor(username, date, comment, score){
@@ -121,11 +152,12 @@ class comment {
     this.score = score
   }
 
-  changeScore(){
-
-  }
-
 }
+
+
+
+
+
 
 // class reply extends comment {}
 
