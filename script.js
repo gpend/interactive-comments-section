@@ -136,22 +136,44 @@ function displayComments(data, currentUser) {
  * @param userInfo - The info on the currently logged in user
  * @returns the html variable.
  */
-  function getUserBlockHTML(userInfo) {
-    const html = `<img src='${userInfo.image.webp}' alt='user pic'/>
-                      <textarea name="add-comment">add a comment</textarea>
-                      <button class='comment-submit'>send</button>`;
+function getUserBlockHTML(userInfo) {
+  const html = `<img src='${userInfo.image.webp}' alt='user pic'/>
+                    <textarea name="add-comment">add a comment</textarea>
+                    <button class='comment-submit'>send</button>`;
 
-    return html;
-  }
+  return html;
+}
 
-class comment {
-  constructor(username, date, comment, score){
+
+class User{
+  constructor(image, username){
+    this.image = image;
     this.username = username;
-    this.date = date;
-    this.comment = comment;
-    this.score = score
   }
 
+} 
+class CommentBase {
+  constructor(id, content, createdAt, score, user, replies){
+    this.id = id;
+    this.content = content;
+    this.createdAt, createdAt;
+    this.score = score;
+    this.user = new User(user)
+  }
+}
+
+class Reply extends CommentBase{
+  constructor(replyingTo){
+    this.replyingTo = replyingTo
+  }
+}
+
+class InitialComment extends CommentBase{
+  constructor(replies){
+    this.replies = replies.forEach(reply => {
+      new Reply(reply)
+    }); 
+  }
 }
 
 
@@ -162,5 +184,4 @@ class comment {
 // class reply extends comment {}
 
 // enable replies
-// enable score change
 //re-order based on score
