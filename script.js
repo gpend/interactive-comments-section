@@ -4,44 +4,49 @@
 3. Displaying the comments in the comment section.
 4. Displaying the current user’s information in the user section.
 */
+
 fetch("data.json")
   .then((response) => response.json())
   .then((data) => {
-    document.querySelector('.comment-section').innerHTML = displayComments(
+    document.querySelector(".comment-section").innerHTML = displayComments(
       data.comments,
       data.currentUser
     );
 
-    document.querySelector('.user-section').innerHTML = getUserBlockHTML(
+    document.querySelector(".user-section").innerHTML = getUserBlockHTML(
       data.currentUser
     );
 
-    var plusButtons = document.getElementsByClassName("comment-card--footer__score-plus")
+    var plusButtons = document.getElementsByClassName(
+      "comment-card--footer__score-plus"
+    );
 
-    for (var button of plusButtons){
-      button.addEventListener("click", changeScore)
-      button.direction = "plus"
-    } 
-
-    var minusButtons = document.getElementsByClassName("comment-card--footer__score-minus")
-
-    for (var button of minusButtons){
-      button.addEventListener("click", changeScore)
-      button.direction = "minus"
+    for (var button of plusButtons) {
+      button.addEventListener("click", changeScore);
+      button.direction = "plus";
     }
 
-    function changeScore(thing){
-      var score = thing.srcElement.parentNode.children[1]
-      var direction = thing.srcElement.direction
+    var minusButtons = document.getElementsByClassName(
+      "comment-card--footer__score-minus"
+    );
+
+    for (var button of minusButtons) {
+      button.addEventListener("click", changeScore);
+      button.direction = "minus";
+    }
+
+    function changeScore(thing) {
+      var score = thing.srcElement.parentNode.children[1];
+      var direction = thing.srcElement.direction;
       switch (direction) {
-        case 'plus':
-          score.innerText = parseInt(score.innerText) + 1
+        case "plus":
+          score.innerText = parseInt(score.innerText) + 1;
           break;
-        case 'minus':
-          if (parseInt(score.innerText) >= 1){
-            score.innerText = parseInt(score.innerText) - 1
+        case "minus":
+          if (parseInt(score.innerText) >= 1) {
+            score.innerText = parseInt(score.innerText) - 1;
           }
-          
+
         default:
           break;
       }
@@ -105,7 +110,7 @@ function getFooterButton(comment, currentUser) {
  * @returns A string of HTML.
  */
 function displayComments(data, currentUser) {
-  let comments = '';
+  let comments = "";
 
   for (let comment of data) {
     let commentHTML = `<div class="comment-card">${getCommentHTML(
@@ -123,7 +128,7 @@ function displayComments(data, currentUser) {
       commentHTML += commentReplyHTML;
     }
 
-    commentHTML += '</div>';
+    commentHTML += "</div>";
 
     comments += commentHTML;
   }
@@ -144,42 +149,35 @@ function getUserBlockHTML(userInfo) {
   return html;
 }
 
-
-class User{
-  constructor(image, username){
+class User {
+  constructor(image, username) {
     this.image = image;
     this.username = username;
   }
-
-} 
+}
 class CommentBase {
-  constructor(id, content, createdAt, score, user, replies){
+  constructor(id, content, createdAt, score, user, replies) {
     this.id = id;
     this.content = content;
     this.createdAt, createdAt;
     this.score = score;
-    this.user = new User(user)
+    this.user = new User(user);
   }
 }
 
-class Reply extends CommentBase{
-  constructor(replyingTo){
-    this.replyingTo = replyingTo
+class Reply extends CommentBase {
+  constructor(replyingTo) {
+    this.replyingTo = replyingTo;
   }
 }
 
-class InitialComment extends CommentBase{
-  constructor(replies){
-    this.replies = replies.forEach(reply => {
-      new Reply(reply)
-    }); 
+class InitialComment extends CommentBase {
+  constructor(replies) {
+    this.replies = replies.forEach((reply) => {
+      new Reply(reply);
+    });
   }
 }
-
-
-
-
-
 
 // class reply extends comment {}
 
